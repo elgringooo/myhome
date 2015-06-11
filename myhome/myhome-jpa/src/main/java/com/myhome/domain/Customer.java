@@ -1,10 +1,11 @@
 package com.myhome.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Customer {
@@ -12,10 +13,17 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(length = 10)
 	private String login;
+	@Column(length = 40)
 	private String firstName;
+	@Column(length = 40)
 	private String lastName;
 	private String emailAddress;
+
+	@OneToOne(mappedBy = "customer")
+	// référence la relation dans la classe CustomerDetails
+	private CustomerDetails details;
 
 	public Customer() {
 
