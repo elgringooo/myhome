@@ -1,0 +1,74 @@
+<html>
+<head>
+
+
+<style type="text/css">
+</style>
+</head>
+<body>
+
+	<div class="mydiv">HEllo</div>
+	<div class="mydiv">World</div>
+
+
+	<div class="applyPluginToDiv">
+		Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a>
+		elit. Praesent sit amet libero odio. Maecenas auctor varius lorem at
+		commodo. Praesent egestas consectetur hendrerit. Pellentesque
+
+		condimentum dictum enim, scelerisque convallis erat mollis quis. Ut
+		cursus tellus sed odio feugiat aliquam. Aenean vel orci nunc. Cras
+		pharetra tortor a e
+	</div>
+
+
+	<div class="applyPluginToDiv">
+		Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing</a>
+		elit. Praesent sit amet libero odio. Maecenas auctor varius lorem at
+		commodo. Praesent egestas consectetur hendrerit. Pellentesque
+
+		condimentum dictum enim, scelerisque convallis erat mollis quis. Ut
+		cursus tellus sed odio feugiat aliquam. Aenean vel orci nunc. Cras
+		pharetra tortor a e
+	</div>
+
+
+
+
+
+	<h1>Le plug-in imageSlide !</h1>
+	<p id="galerie" style="margin: auto;">
+		<img alt="" src="http://www.freephotobank.org/d/18248-4/elephant1.jpg" />
+		<img alt="" src="http://www.freephotobank.org/d/18329-2/Fish-002.jpg" />
+		<img alt="" src="http://www.freephotobank.org/d/18377-2/Fish-014.jpg" />
+	</p>
+
+
+	<script>
+		
+	</script>
+
+
+
+</body>
+
+
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+	type="text/javascript"></script>
+
+
+<script src="scratchpad.js" type="text/javascript"></script>
+<script src="example_plugins_jquery.js" type="text/javascript"></script>
+<script src="imagesliderplugin.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+	//When dom is ready
+	$(function() {
+		$(".applyPluginToDiv").hoverFade();
+		$("#galerie").imageSlide();
+	});
+</script>
+
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd 
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<!-- import propertie file -->
+	<context:property-placeholder location="classpath:database.properties" />
+
+	<!-- import external spring file -->
+	<import resource="classpath:/conf/context-datasource.xml" />
+	<import resource="classpath:/conf/context-jpa.xml" />
+
+
+	<!-- Detect repository for spring data -->
+	<jpa:repositories base-package="com.myhome.repository" />
+
+	<!-- Detects annotations @Transactionnal on methods -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- Detects annotations @Component,@Service,@Repository on class -->
+	<context:component-scan base-package="com.myhome.service" />
+	<context:component-scan base-package="com.myhome.dao" />
+	<context:component-scan base-package="com.myhome.domain" />
+	<context:component-scan base-package="com.myhome.repository" />
+
+</beans>
