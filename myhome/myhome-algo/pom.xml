@@ -11,7 +11,7 @@
 	<groupId>com.myhome</groupId>
 	<artifactId>myhome-algo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>myhome-jpa</name>
+	<name>myhome-algo</name>
 	<url>http://maven.apache.org</url>
 	
 	<dependencies>
