@@ -33,7 +33,7 @@
 
 
 	<logger name="com.myhome" additivity="false">
-		<level value="DEBUG" />
+		<level value="info" />
 		<appender-ref ref="CONSOLE" />
 	</logger>
 
