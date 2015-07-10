@@ -18,7 +18,7 @@ http://www.springframework.org/schema/data/jpa http://www.springframework.org/sc
 	<!-- import external spring file -->
 	<import resource="classpath:/conf-test/context-datasource.xml" />
 	<import resource="classpath:/conf-test/context-jpa.xml" />
-
+	<import resource="classpath:/conf-test/context-aop.xml" />
 
 	<!-- Detect repository for spring data -->
 	<jpa:repositories base-package="com.myhome.repository" />

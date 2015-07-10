@@ -17,7 +17,7 @@ public class CarManagerImpl implements CarManager {
 	@Autowired
 	private CarDao carDao;
 
-	@Transactional(readOnly = false)
+	@Transactional
 	public Car saveCar(Car car) {
 		return carDao.saveOrUpdate(car);
 	}
@@ -32,6 +32,7 @@ public class CarManagerImpl implements CarManager {
 		return carDao.find(id);
 	}
 
+	@Transactional
 	public void deleteItem(Car car, CarItem item) {
 		car.getItems().remove(item);
 		

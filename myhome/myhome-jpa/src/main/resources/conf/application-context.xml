@@ -18,6 +18,7 @@ http://www.springframework.org/schema/data/jpa http://www.springframework.org/sc
 	<!-- import external spring file -->
 	<import resource="classpath:/conf/context-datasource.xml" />
 	<import resource="classpath:/conf/context-jpa.xml" />
+	<import resource="classpath:/conf/context-aop.xml" />
 
 
 	<!-- Detect repository for spring data -->
@@ -31,5 +32,6 @@ http://www.springframework.org/schema/data/jpa http://www.springframework.org/sc
 	<context:component-scan base-package="com.myhome.dao" />
 	<context:component-scan base-package="com.myhome.domain" />
 	<context:component-scan base-package="com.myhome.repository" />
+
 
 </beans>

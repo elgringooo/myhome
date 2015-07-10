@@ -29,7 +29,7 @@ public class TestLogDebugPerf {
         }
 
         long t2 = System.currentTimeMillis() - start;
-        System.out.println("Avec isDebug"+t1 + " --- Sans isDebug" + t2);
+        System.out.println("Avec isDebugEnabled"+t1 + " ---  Sans isDebugEnabled" + t2);
 
     }
 

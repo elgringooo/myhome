@@ -29,7 +29,7 @@
 				<tr>
 					<td><c:out value="${company.id}" /></td>
 					<td>${company.name}</td>
-					<td>${company.headoffice}</td>
+					<td><c:out escapeXml="true" value="${company.headoffice}"/></td>
 					<td>${company.employees}</td>
 					<td><c:url value="/redirectToUpdateCompany" var="updateUrl">
 							<c:param name="idCompany" value="${company.id}" />

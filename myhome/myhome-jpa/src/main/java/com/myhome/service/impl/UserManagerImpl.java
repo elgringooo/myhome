@@ -16,7 +16,7 @@ public class UserManagerImpl implements IUserManager {
 	@Autowired
 	private UserDao userDao;
 
-	@Transactional(readOnly = false)
+	@Transactional
 	public void saveUser(User user) {
 		userDao.saveOrUpdate(user);
 	}
