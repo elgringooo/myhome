@@ -10,6 +10,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.myhome.domain.Customer;
 
+/**
+ * The Interface CustomerRepository. SPRING-DATA
+ */
 public interface CustomerRepository extends JpaRepository<Customer, Long>,
 		CustomerRepositoryCustom {
 

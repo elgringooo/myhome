@@ -3,8 +3,8 @@
 <head>
 <title>Spring MVC + AngularJS Demo</title>
 <script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-<script src="js/angularjs.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="js/angularjs_sample1.js"></script>
 </head>
 <body data-ng-controller="myCtrl">
 	<h1>GET JSON</h1>
