@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset>
-	<Company id="2" name="Name 2" employees="2" headoffice="Headoffice 2" />
-	<Company id="3" name="Name 3" employees="3" headoffice="Headoffice 3" />
-</dataset>

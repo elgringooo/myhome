@@ -2,7 +2,7 @@
  * @(#)Buffer1.java
  
  */
-package com.myhome.jdk5.thread;
+package com.myhome.jdk5.thread.producer;
 
 public class Buffer1 {
     private int taille = 5; // taille de la queue

@@ -5,8 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public class TestListSize {
+    
+    public static void main(String[] args) {
+        new TestListSize().tes1();
+    }
 
-    @org.junit.Test
     public void tes1() {
 
         String[] s = { "test0", "test1", "test2", "Test3" };
