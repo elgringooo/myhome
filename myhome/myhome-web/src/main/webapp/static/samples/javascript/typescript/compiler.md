@@ -1,0 +1,1 @@
+Compiler typescript: Ctrl+shit+B

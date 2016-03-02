@@ -33,5 +33,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/Users/glevi/Downloads/nv-i18n-1.18.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
