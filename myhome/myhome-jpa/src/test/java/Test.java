@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringEscapeUtils;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -21,6 +23,10 @@ public class Test {
         System.out.println(localeMap);
 
         System.out.println(Test.format("12345678", 3));
+        
+        
+        System.out.println(StringEscapeUtils.escapeJava("I agree with order content updates, billing address, shipping address and amount of cart."));
+        
 
     }
 

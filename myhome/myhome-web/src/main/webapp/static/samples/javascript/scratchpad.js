@@ -15,7 +15,9 @@ console.log('La valeur a est ' + a); // le log contient "La valeur de a est
 var input;
 if (!input) {
   console.log('La valeur est  undefined');
+  
 }
+
 /**
  * TYPE
  */
@@ -33,6 +35,7 @@ var myfloat = parseFloat('3.3');
 console.log(myfloat);
 var myint = parseInt('3.3');
 console.log(myint);
+
 /**
  * EGALITE
  */
@@ -70,6 +73,7 @@ console.log(null == undefined); // true
 // sauf dans certains cas exceptionnels
 console.log(obj == null);
 console.log(obj == undefined);
+
 /**
  * TABLEAU
  */
@@ -123,6 +127,7 @@ var mymap = {
 for (var key in mymap) {
   console.log(key + ' -->' + mymap[key]);
 }
+
 /**
  * FONCTIONS
  */
@@ -133,6 +138,7 @@ function carre(nombre) {
   return nombre * nombre;
 }
 console.log(carre(2));
+
 /**
  * FONCTIONS ANONYMES
  * 
@@ -157,6 +163,7 @@ function changeFabriquant(monObjet) {
 }
 changeFabriquant(voiture);
 console.log(voiture.fabricant);
+
 /**
  * CLOSURE: Les fermetures, ou closures en anglais, sont des fonctions qui
  * utilisent des variables libres. Autrement dit, la fonction definie dans la
@@ -174,6 +181,7 @@ var ajout10 = faireAddition(10);
 console.log(ajout5(2)); // 7
 console.log(ajout5(3)); // 8
 console.log(ajout10(2)); // 12
+
 /**
  * Immediately Invoked Function Expression (IIFE): ce sont des fonctions qui
  * s'executent toutes seules=> Expression de fonction immediatement invoquee
@@ -183,6 +191,7 @@ console.log('\n #### FUNCTIONS: IIFE ####');
   var test = 1;
   console.log('testtttttttt' + test);
 }) ();
+
 /**
  * FUNCTION WITH CALLBACK
  */
@@ -193,6 +202,7 @@ function functionwithcallback(arg1, arg2, callback) {
 functionwithcallback('data1', 'data2', function (data) {
   console.log(data);
 });
+
 /**
  * 
  * CLOSURE + IIFF = Module pattern
@@ -258,6 +268,7 @@ var options = {
 console.log(MyModule.init(options));
 console.log(MyModule.mymethod());
 console.log(MyModule.mymethod());
+
 /**
  * OBJETS EN JAVASCRIPT
  */

@@ -1,4 +1,4 @@
-package com.myhome.jdk5.thread.executor.persistasync;
+package com.myhome.jdk5.thread.queueproducerconsumer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -7,8 +7,8 @@ public class SampleLauncher2 {
     public static void main(String[] args) {
 
         ExecutorService consumerPool = Executors.newSingleThreadExecutor();
-        consumerPool.execute(new EntityPersistenceTask());
-        MessageManager instance = MessageManager.getInstance();
+        consumerPool.execute(new MessageConsumerTask());
+        MessageQueueManager instance = MessageQueueManager.getInstance();
         System.out.println("Sending 3 objects");
         instance.put("fdsfds");
         instance.put("221");

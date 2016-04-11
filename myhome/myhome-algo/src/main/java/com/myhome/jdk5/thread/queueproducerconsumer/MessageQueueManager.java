@@ -1,16 +1,16 @@
-package com.myhome.jdk5.thread.executor.persistasync;
+package com.myhome.jdk5.thread.queueproducerconsumer;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * The Class MessageManager is a singleton allowing to send & received message. Message is kept in the context of the current thread thanks to ThreadLocal
  */
-public class MessageManager {
+public class MessageQueueManager {
 
     /**
      * Singleton instance.
      */
-    private static final MessageManager instance = new MessageManager();
+    private static final MessageQueueManager instance = new MessageQueueManager();
 
     private static final ThreadLocal<Message> threadLocal = new ThreadLocal<Message>();
 
@@ -20,7 +20,7 @@ public class MessageManager {
     /**
      * Private constructor.
      */
-    private MessageManager() {
+    private MessageQueueManager() {
         queue = new ConcurrentLinkedQueue<Message>();
     }
 
@@ -28,7 +28,7 @@ public class MessageManager {
      * Get singleton instance.
      * @return single instance of MessageQueueSingleton
      */
-    public static MessageManager getInstance() {
+    public static MessageQueueManager getInstance() {
         return instance;
     }
 

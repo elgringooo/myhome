@@ -1,4 +1,4 @@
-package com.myhome.jdk5.thread.executor.persistasync;
+package com.myhome.jdk5.thread.queueproducerconsumer;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 public class SampleLauncher1 {
 
     /** The Constant NB. */
-    public static final int NB = 1000;
+    public static final int NB = 200;
 
     /**
      * The main method.
@@ -36,7 +36,7 @@ public class SampleLauncher1 {
     public void launchPaylineAPIThreads() {
         ExecutorService paylinePool = Executors.newFixedThreadPool(NB);
         for (int i = 0; i < NB; i++) {
-            paylinePool.execute(new PaylineAPIProducer());
+            paylinePool.execute(new MessageProducerTask());
         }
 
         paylinePool.shutdown();
@@ -47,7 +47,7 @@ public class SampleLauncher1 {
      */
     public void launchEntityPersistenceThread() {
         ExecutorService consumerPool = Executors.newSingleThreadExecutor();
-        consumerPool.execute(new EntityPersistenceTask());
+        consumerPool.execute(new MessageConsumerTask());
     }
 
     /**

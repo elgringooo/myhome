@@ -9,6 +9,15 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 // TODO: Auto-generated Javadoc
+//
+// Callable<V> est une sœur très proche de l'interface Runnable à la différence près que Callable<V> retourne une valeur et lève une exception si le traitement
+// ne peut être fait.
+// //
+// // Cette interface ne contient qu'une seule méthode : public V call() throws Exception qui retourne donc un résultat générique.
+// Celle-ci travaille en étroite collaboration avec l'interface Future<V> qui propose une implémentation de base FutureTask<V>. Cet objet s'utilise
+// conjointement avec un thread afin de lancer la tâche Callable<V> en arrière-plan et vous offre quelques méthodes utiles comme :
+//
+
 /**
  * The Class FutureDemo.
  */
@@ -132,8 +141,5 @@ public class FutureDemo {
         }
         System.out.printf("Result after %dms\n", System.currentTimeMillis() - timeBefore);
     }
-    
-    
-    
 
 }

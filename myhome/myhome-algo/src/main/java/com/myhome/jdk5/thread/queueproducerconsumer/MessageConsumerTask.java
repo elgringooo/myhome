@@ -1,23 +1,23 @@
-package com.myhome.jdk5.thread.executor.persistasync;
+package com.myhome.jdk5.thread.queueproducerconsumer;
 
 import java.util.List;
 
-import com.myhome.jdk5.thread.executor.persistasync.entity.Event;
-import com.myhome.jdk5.thread.executor.persistasync.entity.WebServiceInOut;
+import com.myhome.jdk5.thread.queueproducerconsumer.entity.Event;
+import com.myhome.jdk5.thread.queueproducerconsumer.entity.WebServiceInOut;
 
 /**
  * The Class EntityPersistenceTask.
  */
-public class EntityPersistenceTask implements Runnable {
+public class MessageConsumerTask implements Runnable {
 
     /** The message queue singleton. */
-    private MessageManager messageQueueSingleton;
+    private MessageQueueManager messageQueueSingleton;
 
     /**
      * Instantiates a new entity persistence task.
      */
-    public EntityPersistenceTask() {
-        messageQueueSingleton = MessageManager.getInstance();
+    public MessageConsumerTask() {
+        messageQueueSingleton = MessageQueueManager.getInstance();
     }
 
     /*

@@ -1,16 +1,16 @@
-package com.myhome.jdk5.thread.executor.persistasync;
+package com.myhome.jdk5.thread.queueproducerconsumer;
 
 import java.util.Random;
 
-import com.myhome.jdk5.thread.executor.persistasync.entity.Event;
-import com.myhome.jdk5.thread.executor.persistasync.entity.WebServiceInOut;
+import com.myhome.jdk5.thread.queueproducerconsumer.entity.Event;
+import com.myhome.jdk5.thread.queueproducerconsumer.entity.WebServiceInOut;
 
-public class PaylineAPIProducer implements Runnable {
+public class MessageProducerTask implements Runnable {
 
-    private MessageManager messageManager;
+    private MessageQueueManager messageManager;
 
-    public PaylineAPIProducer() {
-        messageManager = MessageManager.getInstance();
+    public MessageProducerTask() {
+        messageManager = MessageQueueManager.getInstance();
     }
 
     public void run() {

@@ -1,4 +1,4 @@
-package com.myhome.jdk5.thread.executor.persistasync.entity;
+package com.myhome.jdk5.thread.queueproducerconsumer.entity;
 
 import java.io.Serializable;
 import java.util.Date;

@@ -50,6 +50,7 @@ public class CustomerRepositoryTest {
 
 	@Before
 	public void setup() {
+	    LOG.info("GOO");
 		// When executing this method setUp
 		// The transaction will be rolled back after rollBackTrue Test
 		// The transaction will not be rolled back after rollBackFalse Test
