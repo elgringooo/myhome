@@ -1,10 +1,13 @@
 /**
  * 
  */
-package com.myhome.helper;
+package com.myhome.properties;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.text.MessageFormat;
+import java.io.OutputStream;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -12,15 +15,17 @@ import java.util.ResourceBundle;
 /**
  * @author
  */
-public final class PropertiesUtil {
-
-    /** Properties properties */
-    private static Properties properties;
+public final class PropertiesUtils {
 
     /**
      * Constructor
      */
-    private PropertiesUtil() {
+    private PropertiesUtils() {
+    }
+
+    public static Properties loadProperties(String resourceName) {
+        return loadProperties(resourceName, null);
+
     }
 
     /**
@@ -28,39 +33,39 @@ public final class PropertiesUtil {
      * @param String resourcePackage
      * @param String resourceName
      */
-    public static boolean loadProperties(String resourcePackage, String resourceName) {
-        boolean result = true;
+    public static Properties loadProperties(String resourceName, Class clazz) {
         // Load prop file
-        try {
-            if (properties == null) {
-                final ClassLoader loader = Thread.currentThread().getContextClassLoader();
-                final InputStream in = loader.getResourceAsStream(resourcePackage + "/" + resourceName);
+        Properties properties = null;
+        final ClassLoader loader = Thread.currentThread().getContextClassLoader();
+        final InputStream in = loader.getResourceAsStream(resourceName);
+
+        if (clazz == null) {
+            properties = new Properties();
+        } else {
+            try {
+                properties = (Properties) clazz.newInstance();
+            } catch (Exception e1) {
+                e1.printStackTrace();
                 properties = new Properties();
-                properties.load(in);
             }
-        } catch (final Exception e) {
-            result = false;
         }
-        return result;
+        try {
+            properties.load(in);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return properties;
     }
 
-    /**
-     * Find property by key
-     * @param String propName
-     * @return String property
-     */
-    public static String getProperty(String propName) {
-        return properties.getProperty(propName);
-    }
-
-    /**
-     * Find property by key
-     * @param String propName
-     * @param Object [] params
-     * @return String property
-     */
-    public static String getProperty(String propName, Object[] params) {
-        return MessageFormat.format(getProperty(propName), params);
+    public static void saveProperties(final Properties props, final String resourceName) {
+        try {
+            File f = new File(resourceName);
+            OutputStream out = new FileOutputStream(f);
+            props.store(out, "This is an optional header comment string");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static String getMessageFromResourceBundle(Locale locale, final String key) {
