@@ -25,6 +25,8 @@ public class CommentedProperties extends java.util.Properties {
      */
     public Vector<String> keyData = new Vector<>(0, 1);
 
+    private boolean additionnal;
+
     /**
      * Load properties from the specified InputStream. Overload the load method in Properties so we can keep comment and blank lines.
      * @param inStream The InputStream to read.
@@ -279,6 +281,13 @@ public class CommentedProperties extends java.util.Properties {
      * @param value The value of this Property.
      */
     public void add(String keyString, String value) {
+        if (!additionnal) {
+            additionnal = true;
+            lineData.add("");
+            keyData.add("");
+            lineData.add("########## NEW PROPERTIES ################");
+            keyData.add("");
+        }
         put(keyString, value);
         lineData.add("");
         keyData.add(keyString);

@@ -38,6 +38,8 @@ public final class PropertiesUtils {
         Properties properties = null;
         final ClassLoader loader = Thread.currentThread().getContextClassLoader();
         final InputStream in = loader.getResourceAsStream(resourceName);
+        if (in == null)
+            return null;
 
         if (clazz == null) {
             properties = new Properties();
@@ -61,6 +63,9 @@ public final class PropertiesUtils {
     public static void saveProperties(final Properties props, final String resourceName) {
         try {
             File f = new File(resourceName);
+            if (!f.exists()) {
+                f.createNewFile();
+            }
             OutputStream out = new FileOutputStream(f);
             props.store(out, "This is an optional header comment string");
         } catch (Exception e) {
