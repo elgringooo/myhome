@@ -92,6 +92,8 @@
 		</dependency>
 
 
+<!--  T>java -cp d:\hsqldb-2.3.2.jar org.hsqldb.util.DatabaseManager -->
+<!-- jdbc:hsqldb:file:C:/hsqldb/data/myHome -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
