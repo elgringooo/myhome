@@ -67,7 +67,7 @@ public final class PropertiesUtils {
                 f.createNewFile();
             }
             OutputStream out = new FileOutputStream(f);
-            props.store(out, "This is an optional header comment string");
+            props.store(out, null);
         } catch (Exception e) {
             e.printStackTrace();
         }

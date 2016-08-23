@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "COMPANY")
 public class Company {
+<<<<<<< HEAD
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -23,48 +24,60 @@ public class Company {
 	private String headoffice;
 	@OneToOne
 	private Address address;
+=======
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private long id;
+    @Column(name = "NAME")
+    private String name;
+    @Column(name = "EMPLOYEES")
+    private long employees;
+    @Column(name = "HEADOFFICE")
+    private String headoffice;
+>>>>>>> refs/remotes/origin/master
 
-	public Company() {
-	}
+    @OneToOne
+    private Address address;
 
-	public Company(String name, long employees, String headoffice) {
-		this.name = name;
-		this.employees = employees;
-		this.headoffice = headoffice;
-	}
+    public Company() {
+    }
 
-	public long getId() {
-		return id;
-	}
+    public Company(String name, long employees, String headoffice) {
+        this.name = name;
+        this.employees = employees;
+        this.headoffice = headoffice;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setEmployees(long employees) {
-		this.employees = employees;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setEmployees(long employees) {
+        this.employees = employees;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Long getEmployees() {
-		return employees;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getHeadoffice() {
-		return headoffice;
-	}
+    public Long getEmployees() {
+        return employees;
+    }
 
-	public void setHeadoffice(String headoffice) {
-		this.headoffice = headoffice;
-	}
+    public String getHeadoffice() {
+        return headoffice;
+    }
 
+<<<<<<< HEAD
 	public Address getAddress() {
 		return address;
 	}
@@ -79,3 +92,23 @@ public class Company {
 	}
 
 }
+=======
+    public void setHeadoffice(String headoffice) {
+        this.headoffice = headoffice;
+    }
+
+    @Override
+    public String toString() {
+        return "Company [id=" + id + ", name=" + name + ", employees=" + employees + ", headoffice=" + headoffice + "]";
+    }
+
+    public final Address getAddress() {
+        return address;
+    }
+
+    public final void setAddress(Address address) {
+        this.address = address;
+    }
+
+}
+>>>>>>> refs/remotes/origin/master

@@ -5,33 +5,44 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "address")
-public class Address implements IModel<Integer> {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private Integer id;
-	@Column(name = "STREET")
-	private String street;
+@Table(name = "Address")
+public class Address {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private long id;
+    @Column(name = "ADDRESS")
+    private String address;
+    
+    @OneToOne(mappedBy="address")
+    private Company company;
 
-	public String getStreet() {
-		return street;
-	}
+    public final long getId() {
+        return id;
+    }
 
-	public void setStreet(String street) {
-		this.street = street;
-	}
+    public final void setId(long id) {
+        this.id = id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public final String getAddress() {
+        return address;
+    }
 
-	@Override
-	public Integer getId() {
-		return id;
-	}
+    public final void setAddress(String address) {
+        this.address = address;
+    }
+
+    public final Company getCompany() {
+        return company;
+    }
+
+    public final void setCompany(Company company) {
+        this.company = company;
+    }
 
 }
