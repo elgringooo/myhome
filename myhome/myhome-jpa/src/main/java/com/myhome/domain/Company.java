@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +21,8 @@ public class Company {
 	private long employees;
 	@Column(name = "HEADOFFICE")
 	private String headoffice;
+	@OneToOne
+	private Address address;
 
 	public Company() {
 	}
@@ -62,10 +65,17 @@ public class Company {
 		this.headoffice = headoffice;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", name=" + name + ", employees="
-				+ employees + ", headoffice=" + headoffice + "]";
+		return "Company [id=" + id + ", name=" + name + ", employees=" + employees + ", headoffice=" + headoffice + "]";
 	}
-	
+
 }
