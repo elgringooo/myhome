@@ -3,10 +3,8 @@ package com.myhome.algo.merge;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.beanutils.BeanUtilsBean;
+import org.springframework.beans.BeanUtils;
 
 public class Merge {
 	public static void main(String[] args) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
