@@ -18,7 +18,7 @@ import com.excilys.ebi.spring.dbunit.test.ExpectedDataSet;
 import com.myhome.domain.Company;
 import com.myhome.service.ICompanyService;
 
-//Le listener « DataSetTestExecutionListener » s'occupe de charger les données avant l'exécution de la méthode de test. 
+//Le listener ï¿½ DataSetTestExecutionListener ï¿½ s'occupe de charger les donnï¿½es avant l'exï¿½cution de la mï¿½thode de test. 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/conf-test/application-context.xml")
@@ -52,7 +52,7 @@ public class CompanyServiceImplTest {
 
 	@Test
 	@DataSet("/conf-test/data/company.xml")
-	@ExpectedDataSet("/conf-test/data/expected-company.xml")
+	@ExpectedDataSet(value="/conf-test/data/expected-company.xml", caseSensitiveTableNames=false)
 	public void deleteCompany() {
 
 		Company company = new Company();

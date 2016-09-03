@@ -24,13 +24,13 @@
 
 
 	<dependencies>
-	
-	<dependency>
-	<groupId>com.neovisionaries</groupId>
-	<artifactId>nv-i18n</artifactId>
-	<version>1.18</version>
-</dependency>
-	
+
+		<dependency>
+			<groupId>com.neovisionaries</groupId>
+			<artifactId>nv-i18n</artifactId>
+			<version>1.18</version>
+		</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -92,8 +92,8 @@
 		</dependency>
 
 
-<!--  T>java -cp d:\hsqldb-2.3.2.jar org.hsqldb.util.DatabaseManager -->
-<!-- jdbc:hsqldb:file:C:/hsqldb/data/myHome -->
+		<!-- T>java -cp d:\hsqldb-2.3.2.jar org.hsqldb.util.DatabaseManager -->
+		<!-- jdbc:hsqldb:file:C:/hsqldb/data/myHome -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -110,10 +110,18 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.0.1.Final</version>
+			<version>5.2.4.Final</version>
 		</dependency>
-
-
+		<dependency>
+			<groupId>javax.el</groupId>
+			<artifactId>javax.el-api</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.web</groupId>
+			<artifactId>javax.el</artifactId>
+			<version>2.2.4</version>
+		</dependency>
 
 		<!-- Test -->
 		<dependency>
