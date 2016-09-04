@@ -7,7 +7,6 @@ package com.myhome.designpattern.specification.genericspec;
  */
 public abstract class AbstractSpecification<T> implements Specification<T> {
 
-	
 	/**
 	 * {@inheritDoc}
 	 */
@@ -51,3 +50,49 @@ public abstract class AbstractSpecification<T> implements Specification<T> {
  * Les règles métiers ont intérêt à être classées par package, un package par
  * domaine fonctionnel.<br/>
  */
+
+
+
+
+
+
+//
+//
+//down vote
+//Inspired by a comment some days ago. Change
+//
+//bool IsSatisfiedBy(T entity);
+//to
+//
+//Result IsSatisfiedBy(T entity);
+//
+//public class Result 
+//{
+//    public boolean IsSatisfied{}
+//    public List<String> message() {}
+//}
+//But you have to implement && , ! and || :
+//
+//&& Result r1 = spec1.satisfied(o);
+//    if (r1.isSatisfied()) {
+//        Result r2 = spec2.satisfied(o);
+//        if (r2.isSatisfied()) {
+//            return new Result();
+//        } else {
+//            return r2;
+//        }
+//    } else {
+//        return r1;
+//    }
+//
+// || Result r1 = spec1.satisfied(o);
+//    if (r1.isSatisfied()) {
+//        return new Res();           
+//    } else {
+//        Result r2 = spec2.satisfied(o);
+//        if (r2.isSatisfied()) {
+//            return new Result();
+//        } else {
+//            return r2.append(r1.message());
+//        }
+//    }
