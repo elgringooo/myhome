@@ -11,7 +11,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.Spy;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.myhome.dao.CompanyDao;
 import com.myhome.domain.Company;
@@ -19,9 +21,10 @@ import com.myhome.service.ICompanyService;
 import com.myhome.service.impl.CompanyServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CompanyServiceMockitoTest {
+public class CompanyServiceMockitoTest2 {
 
 	@InjectMocks
+	@Autowired
 	private ICompanyService companyService = new CompanyServiceImpl();
 
 	@Mock
