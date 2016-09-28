@@ -1,4 +1,4 @@
-package com.myhome.dto;
+package com.myhome.customvalidator;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

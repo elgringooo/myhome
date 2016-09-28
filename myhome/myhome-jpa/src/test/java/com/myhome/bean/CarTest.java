@@ -11,9 +11,10 @@ import javax.validation.ValidatorFactory;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-import com.myhome.dto.Car;
+import com.myhome.customvalidator.Car;
+
+import static org.junit.Assert.*;
 
 public class CarTest {
 

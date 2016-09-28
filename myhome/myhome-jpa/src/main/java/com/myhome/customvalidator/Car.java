@@ -1,4 +1,4 @@
-package com.myhome.dto;
+package com.myhome.customvalidator;
 
 import java.util.Date;
 
@@ -7,12 +7,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Range;
+
 public class Car {
 
 	private String manufacturer;
-	@Pattern(regexp="^(\\d{2})(\\d{2})$")
+	@Pattern(regexp = "^(\\d{2})(\\d{2})$")
 	private String expirateDate;
-	
+
 	@AfterTomorrow
 	private Date date;
 
@@ -22,6 +24,10 @@ public class Car {
 
 	@Min(2)
 	private int seatCount;
+
+	@Range(min = 18, max = 99, payload = Erreur.class, message = "You cannot subscribe if you are under 18 years old.")
+
+	private String age;
 
 	public Car(String manufacturer, String licencePlate, int seatCount) {
 		this.manufacturer = manufacturer;
@@ -68,6 +74,14 @@ public class Car {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
 	}
 
 	// getters and setters ...
