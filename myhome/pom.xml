@@ -10,6 +10,7 @@
 		<module>myhome-jpa</module>
 		<module>myhome-web</module>
 		<module>myhome-algo</module>
+			<module>myhome-jdbc</module>
 		<module>myhome-bigdata</module>
 	</modules>
 	<properties>
