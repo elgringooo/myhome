@@ -1,0 +1,351 @@
+<wsdl:definitions name="ewalletProxyMerchantDsWebService" targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/soap/merchantds/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns2="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/dto/" xmlns:ns1="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/soap/merchantds/">
+   <wsdl:types>
+      <xs:schema targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/soap/merchantds/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+         <xs:element name="in" type="xs:string"/>
+         <xs:element name="out" type="xs:string"/>
+      </xs:schema>
+      <xs:schema targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/dto/dictionary/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+         <xs:simpleType name="actionType">
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="INSERT"/>
+               <xs:enumeration value="UPDATE"/>
+               <xs:enumeration value="DELETE"/>
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="updateModeString">
+            <xs:restriction base="xs:string">
+               <xs:enumeration value="LOGIN"/>
+               <xs:enumeration value="PWD"/>
+               <xs:enumeration value="ACC"/>
+               <xs:enumeration value="ACC_W"/>
+               <xs:enumeration value="W"/>
+               <xs:enumeration value="CARD"/>
+               <xs:enumeration value="W_CARD"/>
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:schema>
+      <xs:schema elementFormDefault="qualified" targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/dto/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/dto/" xmlns:ns1="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/dto/dictionary/">
+         <xs:import namespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/proxy/services/ws/dto/dictionary/"/>
+         <xs:element name="CheckLoginReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element maxOccurs="unbounded" name="criteria" type="tns:criteriaType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="CheckLoginRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="statusRes" type="tns:statusResType"/>
+                  <xs:element name="existingFlag" type="xs:boolean"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="CreateWalletReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element minOccurs="0" name="encryption" type="tns:encryptionType"/>
+                  <xs:element name="accountData" type="tns:accountEwalletType"/>
+                  <xs:element name="walletData" type="tns:walletType"/>
+                  <xs:element maxOccurs="unbounded" name="cardsData" type="tns:cardListType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="CreateWalletRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="statusRes" type="tns:statusResType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetCardsListReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element maxOccurs="unbounded" name="criteria" type="tns:criteriaType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetCardsListRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="statusRes" type="tns:statusResType"/>
+                  <xs:element minOccurs="0" name="encryption" type="tns:encryptionType"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="cardsList" nillable="true" type="tns:cardDataType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetTransListReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="criteria" type="tns:criteriaType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetTransListRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="statusRes" type="tns:statusResType"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="transList" nillable="true" type="tns:transType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetWalletReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element maxOccurs="unbounded" name="criteria" type="tns:criteriaType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="GetWalletRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="statusRes" type="tns:statusResType"/>
+                  <xs:element minOccurs="0" name="accountEwallet" type="tns:accountEwalletType"/>
+                  <xs:element minOccurs="0" name="walletEwallet" type="tns:walletType"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="cardsEwallet" nillable="true" type="tns:cardListType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="JoinMerchantReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="requestContext" type="tns:requestContext"/>
+                  <xs:element name="merchantRequest" type="tns:merchantRequest"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="JoinMerchantRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="requestContext" type="tns:requestContext"/>
+                  <xs:element name="responseCode" type="xs:string"/>
+                  <xs:element name="responseLabel" type="xs:string"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="UpdateWalletReq">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="criteria" type="tns:criteriaType"/>
+                  <xs:element name="updateMode" type="ns1:updateModeString"/>
+                  <xs:element name="updateUser" type="xs:string"/>
+                  <xs:element minOccurs="0" name="encryption" type="tns:encryptionType"/>
+                  <xs:element minOccurs="0" name="accountData" type="tns:accountEwalletUpdType"/>
+                  <xs:element minOccurs="0" name="walletData" type="tns:walletUpdType"/>
+                  <xs:element maxOccurs="unbounded" minOccurs="0" name="cardsData" nillable="true" type="tns:cardListType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="UpdateWalletRes">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="header" type="tns:headerType"/>
+                  <xs:element name="statusRes" type="tns:statusResType"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:complexType name="requestContext">
+            <xs:sequence>
+               <xs:element name="idRequest" type="xs:string"/>
+               <xs:element name="idRequestor" type="xs:string"/>
+               <xs:element name="senderTime" type="xs:dateTime"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="merchantRequest">
+            <xs:sequence>
+               <xs:element name="action" type="ns1:actionType"/>
+               <xs:element name="merchant" type="tns:merchantType"/>
+               <xs:element name="service" type="xs:string"/>
+               <xs:element minOccurs="0" name="businessSeller" type="xs:string"/>
+               <xs:element minOccurs="0" name="status" type="xs:string"/>
+               <xs:element minOccurs="0" name="country" type="xs:string"/>
+               <xs:element minOccurs="0" name="mcc" type="xs:string"/>
+               <xs:element minOccurs="0" name="urlImg" type="xs:string"/>
+               <xs:element minOccurs="0" name="logoImg" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="merchantType">
+            <xs:sequence>
+               <xs:element name="merchantId" type="xs:string"/>
+               <xs:element name="merchantName" type="xs:string"/>
+               <xs:element name="merchantUrl" type="xs:string"/>
+               <xs:element name="binAcquirer" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="walletType">
+            <xs:sequence>
+               <xs:element name="clientIdentifier" type="xs:string"/>
+               <xs:element minOccurs="0" name="clientCommunity" type="xs:string"/>
+               <xs:element name="statusW" type="xs:string"/>
+               <xs:element name="aliasDftCard" type="xs:string"/>
+               <xs:element name="authentData" type="tns:authentInfoType"/>
+               <xs:element name="cguAcceptedDate" type="xs:dateTime"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="authentInfoType">
+            <xs:sequence>
+               <xs:element name="authentMethod" type="xs:string"/>
+               <xs:element minOccurs="0" name="msisdn" type="xs:string"/>
+               <xs:element minOccurs="0" name="m2id" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="walletUpdType">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="clientCommunity" type="xs:string"/>
+               <xs:element minOccurs="0" name="statusW" type="xs:string"/>
+               <xs:element minOccurs="0" name="aliasDftCard" type="xs:string"/>
+               <xs:element minOccurs="0" name="authentData" type="tns:authentInfoType"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="criteriaType">
+            <xs:sequence>
+               <xs:element name="key" type="xs:string"/>
+               <xs:element name="value" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="headerType">
+            <xs:sequence>
+               <xs:element name="requestId" type="xs:int"/>
+               <xs:element name="issuerId" type="xs:long"/>
+               <xs:element name="senderTime" type="xs:dateTime"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="statusResType">
+            <xs:sequence>
+               <xs:element name="code" type="xs:string"/>
+               <xs:element minOccurs="0" name="errorText" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="transType">
+            <xs:sequence>
+               <xs:element name="merchant" type="tns:merchantType"/>
+               <xs:element name="purchase" type="tns:purchaseType"/>
+               <xs:element name="cardEwallet" type="tns:cardEwalletType"/>
+               <xs:element name="authent" type="tns:authentType"/>
+               <xs:element minOccurs="0" name="author" type="tns:authorType"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="purchaseType">
+            <xs:sequence>
+               <xs:element name="purchaseAmount" type="xs:string"/>
+               <xs:element name="currency" type="xs:string"/>
+               <xs:element name="exponent" type="xs:string"/>
+               <xs:element name="date" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="cardEwalletType">
+            <xs:sequence>
+               <xs:element name="aliasCard" type="xs:string"/>
+               <xs:element name="labelCard" type="xs:string"/>
+               <xs:element name="statusCardEwallet" type="xs:string"/>
+               <xs:element name="maskedPan" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="authentType">
+            <xs:sequence>
+               <xs:element name="authentMethod" type="xs:string"/>
+               <xs:element name="dauthentResult" type="xs:boolean"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="authorType">
+            <xs:sequence>
+               <xs:element name="authorNb" type="xs:string"/>
+               <xs:element name="authorDate" type="xs:dateTime"/>
+               <xs:element name="authorResult" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="authDataType">
+            <xs:sequence>
+               <xs:element name="authCode" type="xs:string"/>
+               <xs:element name="authentMethod" type="xs:string"/>
+               <xs:element minOccurs="0" name="challenge" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="encryptionType">
+            <xs:sequence>
+               <xs:element name="encryptionKeyId" type="xs:string"/>
+               <xs:element name="encryptionAlgoId" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="accountEwalletType">
+            <xs:sequence>
+               <xs:element name="loginValue" type="xs:string"/>
+               <xs:element name="isPwdBlocked" type="xs:string"/>
+               <xs:element minOccurs="0" name="pwd" type="tns:pwdType"/>
+               <xs:element name="loginType" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="pwdType">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="encryptedPwd" type="xs:string"/>
+               <xs:element minOccurs="0" name="hashedPwd" type="xs:string"/>
+               <xs:element minOccurs="0" name="plainPwd" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="cardListType">
+            <xs:sequence>
+               <xs:element name="card" type="tns:cardInfoType"/>
+               <xs:element name="infoEwallet" type="tns:cardEwalletType"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="cardInfoType">
+            <xs:sequence>
+               <xs:element name="expDate" type="xs:string"/>
+               <xs:element name="pan" type="tns:panType"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="panType">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="encryptedPan" type="xs:string"/>
+               <xs:element minOccurs="0" name="plainPan" type="xs:string"/>
+               <xs:element minOccurs="0" name="tokenPan" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="accountEwalletUpdType">
+            <xs:sequence>
+               <xs:element minOccurs="0" name="loginType" type="xs:string"/>
+               <xs:element minOccurs="0" name="pwd" type="tns:pwdType"/>
+               <xs:element minOccurs="0" name="loginValue" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="cardDataType">
+            <xs:sequence>
+               <xs:element name="cardInfo" type="tns:cardInfoType"/>
+               <xs:element name="aliasCard" type="xs:string"/>
+               <xs:element name="labelDftCard" type="xs:string"/>
+               <xs:element name="maskedPan" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="issuer">
+            <xs:sequence>
+               <xs:element name="issuerId" type="xs:string"/>
+               <xs:element minOccurs="0" name="branchIssuerId" type="xs:string"/>
+               <xs:element name="cardBin" type="xs:string"/>
+            </xs:sequence>
+         </xs:complexType>
+      </xs:schema>
+   </wsdl:types>
+   <wsdl:message name="joinMerchantResponse">
+      <wsdl:part element="ns2:JoinMerchantRes" name="parameters"/>
+   </wsdl:message>
+   <wsdl:message name="joinMerchant">
+      <wsdl:part element="ns2:JoinMerchantReq" name="parameters"/>
+   </wsdl:message>
+   <wsdl:portType name="ewalletProxyMerchantDsWebService">
+      <wsdl:operation name="joinMerchant">
+         <wsdl:input message="ns1:joinMerchant" name="joinMerchant"/>
+         <wsdl:output message="ns1:joinMerchantResponse" name="joinMerchantResponse"/>
+      </wsdl:operation>
+   </wsdl:portType>
+</wsdl:definitions>

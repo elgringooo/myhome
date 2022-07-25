@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/dto/merchant" name="webservices" targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant/" version="1.0">
+
+  <xs:element name="in" type="xs:string"/>
+
+  <xs:element name="out" type="xs:string"/>
+
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant">
+  <xs:simpleType name="internalCodeInterbankPayCoreEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INTERBANK_SUCCESS"/>
+      <xs:enumeration value="INTERBANK_INVALID_MERCHANT"/>
+      <xs:enumeration value="INTERBANK_HAZEL_CAST_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSEREQ_BAD_STRUCTURE"/>
+      <xs:enumeration value="INTERBANK_MSE_SERVICE_PROVIDER_SIGNATURE_INVALID"/>
+      <xs:enumeration value="INTERBANK_MSE_SERVICE_PROVIDER_UNKNOWN"/>
+      <xs:enumeration value="INTERBANK_MSE_INVALID_IDREQUEST"/>
+      <xs:enumeration value="INTERBANK_MSE_JMS_INITPAYMENT_FAILED"/>
+      <xs:enumeration value="INTERBANK_MSE_JMS_ASK_AUTHENT_TOKEN_FAILED"/>
+      <xs:enumeration value="INTERBANK_MSE_JMS_CHECK_AUTHENT_OTP_FAILED"/>
+      <xs:enumeration value="INTERBANK_MSE_UNKNOWN_ACCOUNT"/>
+      <xs:enumeration value="INTERBANK_MSE_WRONG_PWD_RETRY"/>
+      <xs:enumeration value="INTERBANK_MSE_ALREADY_SUSPENDED_ACCOUNT"/>
+      <xs:enumeration value="INTERBANK_MSE_ALREADY_BLOCKED_ACCOUNT"/>
+      <xs:enumeration value="INTERBANK_MSE_ALREADY_TEMPORARY_BLOCKED_ACCOUNT"/>
+      <xs:enumeration value="INTERBANK_MSE_SUSPENDED_SERVICE"/>
+      <xs:enumeration value="INTERBANK_MSE_WRONG_PWD_ACCOUNT_BLOCKED"/>
+      <xs:enumeration value="INTERBANK_MSE_WRONG_PWD_ACCOUNT_TEMPORARY_BLOCKED"/>
+      <xs:enumeration value="INTERBANK_MSE_SUSPENDED_WALLET"/>
+      <xs:enumeration value="INTERBANK_MSE_NO_VALID_PAYMENT_CARD"/>
+      <xs:enumeration value="INTERBANK_MSE_WRONG_OTP_RETRY"/>
+      <xs:enumeration value="INTERBANK_MSE_WRONG_OTP_KO"/>
+      <xs:enumeration value="INTERBANK_MSE_INITPAYMENT_UNKNOWN_WALLET"/>
+      <xs:enumeration value="INTERBANK_MSE_JMS_HISTO_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSE_UNEXPECTED_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSE_DB_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSE_ERROR_RETRIEVING_MSEREQ_FROM_REQUEST"/>
+      <xs:enumeration value="INTERBANK_MSE_END_PAYMENT_TOKEN_INVALID_SIGNATURE"/>
+      <xs:enumeration value="INTERBANK_MSE_END_PAYMENT_TOKEN_INCOHERENT_DATAS"/>
+      <xs:enumeration value="INTERBANK_MSE_PAYMENT_CANCELLED"/>
+      <xs:enumeration value="INTERBANK_MSE_NO_OTP_RECEIVED"/>
+      <xs:enumeration value="INTERBANK_MSE_EXPIRED_SESSION"/>
+      <xs:enumeration value="INTERBANK_MSE_JMS_AUDIT_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSE_INVALID_TRANSACTION"/>
+      <xs:enumeration value="INTERBANK_MSE_WRONG_MPIN_KO"/>
+      <xs:enumeration value="INTERBANK_MSE_END_PAYMENT_TECHNICAL_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSE_FRAUD"/>
+      <xs:enumeration value="INTERBANK_MSE_LOADING_FILE_ERROR"/>
+      <xs:enumeration value="INTERBANK_MSE_SUSPENDED_AUTHENTICATION_METHOD"/>
+      <xs:enumeration value="INTERBANK_MSE_SERVICE_PAYLIB_INACTIF"/>
+      <xs:enumeration value="INTERBANK_MDAREQ_BAD_STRUCTURE"/>
+      <xs:enumeration value="INTERBANK_MDA_SERVICE_PROVIDER_SIGNATURE_INVALID"/>
+      <xs:enumeration value="INTERBANK_MDA_INVALID_STATUS_MSE"/>
+      <xs:enumeration value="INTERBANK_MDA_INVALID_REQUEST"/>
+      <xs:enumeration value="INTERBANK_MDA_INVALID_STATUS_MDA"/>
+      <xs:enumeration value="INTERBANK_MDA_JMS_ASK_CARD_DATA_FAILED"/>
+      <xs:enumeration value="INTERBANK_MDA_INVALID_TOKEN"/>
+      <xs:enumeration value="INTERBANK_MDA_JMS_HISTO_ERROR"/>
+      <xs:enumeration value="INTERBANK_MAU_JMS_HISTO_ERROR"/>
+      <xs:enumeration value="INTERBANK_MAU_JMS_AUTHO_ERROR"/>
+      <xs:enumeration value="INTERBANK_MAU_INVALID_REQUEST"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_WRONG_PARAMETERS"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_NO_WALLET_AVAILABLE"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_SCORING_ENGINE_UNAVAILABLE"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_NO_CARD_AVAILABLE"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_OK"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_WRONG_PARAMETERS"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_TECHNICAL_ERROR"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_TECHNICAL_ERROR"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_TIME_OUT"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_TIME_OUT"/>
+      <xs:enumeration value="ISSUERCORE_CHECK_OTP_TIME_OUT"/>
+      <xs:enumeration value="ISSUERCORE_CHECK_OTP_WRONG_PARAMETERS"/>
+      <xs:enumeration value="ISSUERCORE_CHECK_OTP_TECHNICAL_ERROR"/>
+      <xs:enumeration value="ISSUERCORE_INITPAYMENT_TRANSACTION_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_TRANSACTION_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_CHECK_OTP_TRANSACTION_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_TRANSACTION_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_WRONG_PARAMETERS"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_TECHNICAL_ERROR"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_SCORING_ENGINE_UNAVAILABLE"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_INVALID_TOKEN"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_OOB_NOT_ENROLED"/>
+      <xs:enumeration value="ISSUERCORE_AUTHEN_TOKEN_OOB_ENROLMENT_IN_PROGRESS"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_FOR_SCORING_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_FOR_SCORING_WRONG_PARAMETERS"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_FOR_SCORING_TRANSACTION_TIMEOUT"/>
+      <xs:enumeration value="ISSUERCORE_CARD_DATA_IS_NOT_AVAILABLE"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_FOR_SCORING_TECHNICAL_ERROR"/>
+      <xs:enumeration value="INTERBANK_MTF_WS_PSP_ERROR"/>
+      <xs:enumeration value="INTERBANK_MTF_JMS_HISTO_ERROR"/>
+      <xs:enumeration value="INTERBANK_MTF_JMS_AUTHO_ERROR"/>
+      <xs:enumeration value="INTERBANK_MTF_INVALID_REQUEST"/>
+      <xs:enumeration value="INTERBANK_MTF_DB_ERROR"/>
+      <xs:enumeration value="INTERBANK_MTF_INVALID_RESPONSE"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_JMS_HISTO_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_TECHNICAL_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_NOT_FOUND"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_BAD_TOKEN_TRANSACTION"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_WALLET_CLOSED"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_SERVICE_SUSPENDED"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_NO_CARD"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_NO_LOGIN"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_TIMEOUT"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_PWD_BLOCKED"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_WALLET_SUSPENDED"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_REVOKED_SEA_TOKEN"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_IDENTIFIER_UNAVAILABLE"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_BAD_PARAMETER"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_DECRYPT_SESSION_KEY_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_DECRYPT_ID_SSE_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_CRYPT_LOGIN_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_CRYPT_ID_TRANSACTION_SEA_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_TRANSACTION_NO_WALLET_AVAILABLE"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_TRANSACTION_NOT_FOUND"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_JMS_HISTO_ERROR"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_ACCOUNT_NOT_FOUND"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_PWD_ACCOUNT_BLOCKED"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_SUSPENDED_SERVICE"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_BAD_TOKEN_TRANSACTION"/>
+      <xs:enumeration value="INTERBANK_INIT_IDENTIFICATION_TRANSACTION_BAD_STATUS"/>
+      <xs:enumeration value="INTERBANK_MTI_WS_CERTIFICATE_CLIENT_NOT_AVAILABLE"/>
+      <xs:enumeration value="INTERBANK_MTI_WS_NO_MATCH_COMMON_NAME"/>
+      <xs:enumeration value="INTERBANK_MTI_TRANSACTION_DOUBLON"/>
+      <xs:enumeration value="INTERBANK_MTI_TO_BE_DEFINE"/>
+      <xs:enumeration value="INTERBANK_MTI_INVALID_REQUEST"/>
+      <xs:enumeration value="INTERBANK_MTI_GENERATING_TOKEN_ERROR"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_BAD_AUTHENTICATION_METHOD"/>
+      <xs:enumeration value="INTERBANK_NOTIFY_FAILURE_M_PIN_BLOCKED"/>
+      <xs:enumeration value="ISSUERCORE_ASKAUTHEN_M_PIN_LOCKED"/>
+      <xs:enumeration value="ISSUERCORE_NO_WALLET_SERIVES_AVAILABLE"/>
+      <xs:enumeration value="INTERBANK_ONECLICK_IDENTIFIER_GENERATION_FAILURE"/>
+      <xs:enumeration value="INTERBANK_ONECLICK_IDENTIFIER_NULL"/>
+      <xs:enumeration value="INTERBANK_ONECLICK_LOGIN_PEPS_NULL"/>
+      <xs:enumeration value="INTERBANK_ONECLICK_IDENTIFIER_MISMATCH"/>
+      <xs:enumeration value="INTERBANK_TECHNICAL_ERROR"/>
+      <xs:enumeration value="INTERBANK_UNKNOWN_ERROR"/>
+      <xs:enumeration value="INTERBANK_MDA_JMS_ASK_CARD_DATA_PAIRING_FAILED"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_PAIRING_TECHNICAL_ERROR"/>
+      <xs:enumeration value="ISSUERCORE_ASK_CARD_DATA_PAIRING_INVALID_TOKEN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MissingAmqAnnotationException" type="MissingAmqAnnotationException"/>
+  <xs:complexType name="MissingAmqAnnotationException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PayCoreBusinessException" type="PayCoreBusinessException"/>
+  <xs:complexType name="PayCoreBusinessException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="error" type="internalCodeInterbankPayCoreEnum"/>
+      <xs:element minOccurs="0" name="internEnum" type="internalCodeInterbankPayCoreEnum"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IncorrectAmqAnnotationValues" type="IncorrectAmqAnnotationValues"/>
+  <xs:complexType name="IncorrectAmqAnnotationValues">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/dto/merchant" elementFormDefault="qualified" targetNamespace="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/dto/merchant" version="1.0">
+
+  <xs:element name="MerchantAuthAcknowledgementRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="responseCode" type="xs:string"/>
+        <xs:element name="responseLabel" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantAuthenticationCheckRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element minOccurs="0" name="transToken" type="xs:string"/>
+        <xs:element minOccurs="0" name="otpValue" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantAuthenticationCheckResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="responseCode" type="xs:string"/>
+        <xs:element name="responseLabel" type="xs:string"/>
+        <xs:element minOccurs="0" name="transToken" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantAuthorizationResultReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="authResult" type="tns:authResultType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantCardDataReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="valueToken" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantCardDataRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="responseCode" type="xs:string"/>
+        <xs:element name="responseLabel" type="xs:string"/>
+        <xs:element name="cdRes" type="tns:cdResType"/>
+        <xs:element minOccurs="0" name="oneClickIdentifier" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantTransactionCancelRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element minOccurs="0" name="transToken" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantTransactionCancelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="responseCode" type="xs:string"/>
+        <xs:element name="responseLabel" type="xs:string"/>
+        <xs:element minOccurs="0" name="transToken" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantTransactionInitializationRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element minOccurs="0" name="endUserContext" type="tns:endUserContext"/>
+        <xs:element name="merchantContext" type="tns:merchantContext"/>
+        <xs:element name="paymentContext" type="tns:paymentContext"/>
+        <xs:element minOccurs="0" name="internalContext" type="xs:string"/>
+        <xs:element minOccurs="0" name="versionContext" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MerchantTransactionInitializationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="requestContext" type="tns:requestContext"/>
+        <xs:element name="responseCode" type="xs:string"/>
+        <xs:element name="responseLabel" type="xs:string"/>
+        <xs:element minOccurs="0" name="transToken" type="xs:string"/>
+        <xs:element minOccurs="0" name="authentContext" type="tns:authentContext"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="requestContext">
+    <xs:sequence>
+      <xs:element name="idRequest" type="xs:string"/>
+      <xs:element name="idRequestor" type="xs:string"/>
+      <xs:element name="senderTime" type="xs:dateTime"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cdResType">
+    <xs:sequence>
+      <xs:element name="idResponse" type="xs:string"/>
+      <xs:element name="pan" type="xs:string"/>
+      <xs:element name="expDate" type="xs:string"/>
+      <xs:element name="senderTime" type="xs:dateTime"/>
+      <xs:element maxOccurs="unbounded" name="cryptoPEPSSession" type="tns:cryptoPEPSType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cryptoPEPSType">
+    <xs:sequence>
+      <xs:element name="seqCryptoPEPS" type="xs:string"/>
+      <xs:element name="algoCryptoPEPS" type="xs:int"/>
+      <xs:element name="valueCryptoPEPS" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="endUserContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstname" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastname" type="xs:string"/>
+      <xs:element minOccurs="0" name="idAccountPEPS" type="xs:string"/>
+      <xs:element minOccurs="0" name="tokenWalletId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="merchantContext">
+    <xs:sequence>
+      <xs:element name="idMerchant" type="xs:string"/>
+      <xs:element name="binAcquirer" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="url" type="xs:string"/>
+      <xs:element name="mcc" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="paymentContext">
+    <xs:sequence>
+      <xs:element name="idTrans" type="xs:string"/>
+      <xs:element name="amountTrans" type="tns:amount"/>
+      <xs:element name="dateTrans" type="xs:dateTime"/>
+      <xs:element name="typeTrans" type="xs:int"/>
+      <xs:element minOccurs="0" name="instalmentNb" type="xs:int"/>
+      <xs:element minOccurs="0" name="instalmentOption" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="instalmentSchedule" nillable="true" type="tns:instalmentSchedule"/>
+      <xs:element minOccurs="0" name="nbProducts" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="cartDetail" nillable="true" type="tns:cartDetail"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="amount">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:string"/>
+      <xs:element name="currency" type="xs:int"/>
+      <xs:element name="exponent" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="instalmentSchedule">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="seqInstalment" type="xs:int"/>
+      <xs:element minOccurs="0" name="amountInstalment" type="tns:amount"/>
+      <xs:element minOccurs="0" name="dateInstalment" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="cartDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nameProduct" type="xs:string"/>
+      <xs:element minOccurs="0" name="amountProduct" type="tns:amount"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authentContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="tokenWalletID" type="xs:string"/>
+      <xs:element minOccurs="0" name="authentMethod" type="xs:string"/>
+      <xs:element minOccurs="0" name="issuerBank" type="xs:string"/>
+      <xs:element minOccurs="0" name="labelPan" type="xs:string"/>
+      <xs:element minOccurs="0" name="maskedPan" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="addHTMLData" nillable="true" type="tns:dataHTML"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dataHTML">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="key" type="xs:string"/>
+      <xs:element minOccurs="0" name="value" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authResultType">
+    <xs:sequence>
+      <xs:element name="authNumber" type="xs:string"/>
+      <xs:element name="authResponse" type="xs:string"/>
+      <xs:element name="binAcquirer" type="xs:string"/>
+      <xs:element name="idTrans" type="xs:string"/>
+      <xs:element name="brand" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="doMti">
+    <wsdl:part element="ns1:MerchantTransactionInitializationRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMau">
+    <wsdl:part element="ns1:MerchantAuthorizationResultReq" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMtc">
+    <wsdl:part element="ns1:MerchantTransactionCancelRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IncorrectAmqAnnotationValues">
+    <wsdl:part element="tns:IncorrectAmqAnnotationValues" name="IncorrectAmqAnnotationValues">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMda">
+    <wsdl:part element="ns1:MerchantCardDataReq" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMdaResponse">
+    <wsdl:part element="ns1:MerchantCardDataRes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMtiResponse">
+    <wsdl:part element="ns1:MerchantTransactionInitializationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMac">
+    <wsdl:part element="ns1:MerchantAuthenticationCheckRequest" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="PayCoreBusinessException">
+    <wsdl:part element="tns:PayCoreBusinessException" name="PayCoreBusinessException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MissingAmqAnnotationException">
+    <wsdl:part element="tns:MissingAmqAnnotationException" name="MissingAmqAnnotationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMauResponse">
+    <wsdl:part element="ns1:MerchantAuthAcknowledgementRes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMtcResponse">
+    <wsdl:part element="ns1:MerchantTransactionCancelResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="doMacResponse">
+    <wsdl:part element="ns1:MerchantAuthenticationCheckResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ewalletPayCoreMerchantWebService">
+    <wsdl:operation name="doMac">
+      <wsdl:input message="tns:doMac" name="doMac">
+    </wsdl:input>
+      <wsdl:output message="tns:doMacResponse" name="doMacResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doMda">
+      <wsdl:input message="tns:doMda" name="doMda">
+    </wsdl:input>
+      <wsdl:output message="tns:doMdaResponse" name="doMdaResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:PayCoreBusinessException" name="PayCoreBusinessException">
+    </wsdl:fault>
+      <wsdl:fault message="tns:IncorrectAmqAnnotationValues" name="IncorrectAmqAnnotationValues">
+    </wsdl:fault>
+      <wsdl:fault message="tns:MissingAmqAnnotationException" name="MissingAmqAnnotationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doMti">
+      <wsdl:input message="tns:doMti" name="doMti">
+    </wsdl:input>
+      <wsdl:output message="tns:doMtiResponse" name="doMtiResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doMau">
+      <wsdl:input message="tns:doMau" name="doMau">
+    </wsdl:input>
+      <wsdl:output message="tns:doMauResponse" name="doMauResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doMtc">
+      <wsdl:input message="tns:doMtc" name="doMtc">
+    </wsdl:input>
+      <wsdl:output message="tns:doMtcResponse" name="doMtcResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="webservicesSoapBinding" type="tns:ewalletPayCoreMerchantWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="doMac">
+      <soap:operation soapAction="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant/checkOTPWS" style="document"/>
+      <wsdl:input name="doMac">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doMacResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doMda">
+      <soap:operation soapAction="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/doMda" style="document"/>
+      <wsdl:input name="doMda">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doMdaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="PayCoreBusinessException">
+        <soap:fault name="PayCoreBusinessException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="IncorrectAmqAnnotationValues">
+        <soap:fault name="IncorrectAmqAnnotationValues" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="MissingAmqAnnotationException">
+        <soap:fault name="MissingAmqAnnotationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="doMti">
+      <soap:operation soapAction="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant/doMti" style="document"/>
+      <wsdl:input name="doMti">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doMtiResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doMau">
+      <soap:operation soapAction="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/doMau" style="document"/>
+      <wsdl:input name="doMau">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doMauResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="doMtc">
+      <soap:operation soapAction="http://www.atos.net/awl/bfi/ita/wallet/interbank/paycore/services/ws/soap/merchant/cancelTransaction" style="document"/>
+      <wsdl:input name="doMtc">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="doMtcResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="webservices">
+    <wsdl:port binding="tns:webservicesSoapBinding" name="ewalletPayCoreMerchantWebServicePort">
+      <soap:address location="https://ssl-liv-payment-ws.ewallet.aw.atos.net/interbank-pay-core/webservices/EwalletPayCoreMerchantWebServiceImpl?wsdl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
